@@ -1,0 +1,14 @@
+<div id="search-component">
+  <label for="search-box">Voice Search</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <h2>Coming soon!</h2>
+  <ul class="search-result">
+    <li *ngFor="let voice of voices$ | async" >
+      <a routerLink="/detail/{{voice.id}}">
+        {{voice.text}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+

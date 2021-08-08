@@ -1,0 +1,11 @@
+<h2>Top audios (Click to play!):</h2>
+<div class="voices-menu">
+  <a *ngFor="let voice of voices"
+      (click)="play(voice)">
+      {{voice.text}}
+  </a>
+</div>
+
+<app-voice-search></app-voice-search>
+
+

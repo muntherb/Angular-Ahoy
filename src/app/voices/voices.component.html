@@ -1,0 +1,26 @@
+<h2>Welcome to text to speech!</h2>
+<form id="form" name="myForm"  (ngSubmit)="addVoice()" #myForm="ngForm">
+  <div>
+    <label for="new-voice">Insert words: </label>
+    <input type="text" id="new-voice" [maxLength]="50" [(ngModel)]="text" name="text" required #name="ngModel"/>
+
+    <button type="submit" id="add" class="add-button" [disabled]="!myForm.valid">
+      Add Audio File to list
+    </button>
+  </div>
+</form>
+<h2>Click to play!</h2>
+<ul class="voices">
+  <li *ngFor="let voice of voices; let i = index" (click)="play(voice)">
+      <span class="badge">{{i}}</span> {{voice.text}}
+    <button type="button" class="delete" title="delete voice"
+      (click)="deleteVoice(i,voice.text)">x</button>
+  </li>
+</ul>
+<audio id="audio" controls autoplay>
+  <source id="source" src="../../assets/VoiceFile{{clickedfile}}.wav" type="audio/wav">
+  <source src="../../assets/VoiceFile{{clickedfile}}.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+
+
